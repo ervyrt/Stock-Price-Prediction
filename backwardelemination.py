@@ -52,10 +52,11 @@ def prepare_data(X, y):
 
 X_train, X_test, y_train, y_test,scaler_y = prepare_data(df, df[target])
 #create checkpoint file
-checkpoint_file = os.path.join(output_directory, 'checkpoint.json')  # Checkpoint file path
+checkpoint_file = os.path.join(output_directory, 'checkpoint.json') 
+# creating callback for saving the best model.
 callback_path = os.path.join(output_directory, 'checkpoint.weights.h5')  # Change the extension to .weights.h5
 callback = ModelCheckpoint(filepath=callback_path, save_weights_only=True, verbose=1)
-# Backward elimination to retain the most important features; for start, I have chosen 375 features
+# Backward elimination to retain the most important features;
 def backward_elimination(X_train, y_train, X_test, y_test, test_size=0.2, random_state=42, min_features=1):
     """
     Perform backward elimination to retain the most important features.
