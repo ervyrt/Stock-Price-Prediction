@@ -5,7 +5,7 @@ import time
 import numpy as np
 import os
 
-output_directory='project/datass'
+output_directory='project/data'
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
 
@@ -18,13 +18,10 @@ symbol='MSFT'
 interval='1min'
 
 
-# Initialize the TechIndicators class with your API key
-'''
+#Initializing Technical Indicator and 1mion snapshot
 snapshot, meta_data = app.get_intraday('MSFT',interval='1min',outputsize='full')
 snapshot.to_csv(os.path.join(output_directory, 'MSFT_1min_snapshot.csv'))
 
-print(snapshot.head())
-print(snapshot.shape)
 sma_data, _ = ti.get_sma(symbol=symbol, interval=interval, time_period=20, series_type='close')
 sma_data.to_csv(os.path.join(output_directory, 'MSFT_SMA.csv'))
 
@@ -47,9 +44,9 @@ kama_data, _ = ti.get_kama(symbol=symbol, interval=interval, time_period=20, ser
 kama_data.to_csv(os.path.join(output_directory, 'MSFT_KAMA.csv'))
 
 mama_data, _ = ti.get_mama(symbol=symbol, interval=interval, series_type='close')
-mama_data.to_csv(os.path.join(output_directory, 'MSFT_MAMA.csv'))'''
+mama_data.to_csv(os.path.join(output_directory, 'MSFT_MAMA.csv'))
 
-'''vwap_data, _ = ti.get_vwap(symbol=symbol, interval=interval)
+vwap_data, _ = ti.get_vwap(symbol=symbol, interval=interval)
 vwap_data.to_csv(os.path.join(output_directory, 'MSFT_VWAP.csv'))
 
 t3_data, _ = ti.get_t3(symbol=symbol, interval=interval, time_period=20, series_type='close')
@@ -284,7 +281,7 @@ mama_data, _ = ti.get_mama(symbol=symbol, interval=interval, series_type='close'
 mama_data.to_csv(os.path.join(output_directory, 'MSFT_MAMA3.csv'))
 
 rsi_data, _ = ti.get_rsi(symbol=symbol, interval=interval, time_period=time_period3, series_type='close')
-rsi_data.to_csv(os.path.join(output_directory, 'MSFT_RSI3.csv'))'''
+rsi_data.to_csv(os.path.join(output_directory, 'MSFT_RSI3.csv'))
 
 indicators = [
     'SMA2', 'EMA2', 'WMA2', 'DEMA2', 'TEMA2', 'TRIMA2', 'KAMA2', 'MAMA2', 
