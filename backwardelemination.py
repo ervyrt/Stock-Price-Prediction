@@ -226,8 +226,8 @@ def save_eleminated_features(scores):
     eleminated_data.to_csv(os.path.join(output_directory, 'eleminated_data.csv'), index=False)
 
     print(best_combination)
-'''scores.to_csv(os.path.join(input_directory, 'elimination_scores_BW_sorted.csv'), index=False)
-print(scores.columns)'''
+scores.to_csv(os.path.join(input_directory, 'elimination_scores_BW_sorted.csv'), index=False)
+print(scores.columns)
 if __name__ == "__main__":
  
 
